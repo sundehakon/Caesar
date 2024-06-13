@@ -1,5 +1,6 @@
 def caesar
     encrypted_string = "" # Initialize encrypted_string outside the loop
+    increment = nil # Define increment as a global variable
     loop do
       system("clear") || system("cls")  # Clear the screen
       puts "\nType 'view' to see encrypted string"
@@ -46,7 +47,7 @@ def caesar
             ascii += increment
             ascii -= increment + 21 if ascii > 122 
           end
-
+  
           puts ascii
           encrypted_string += ascii.chr
         end
@@ -76,7 +77,7 @@ def caesar
             end
         else
           puts encrypted_string
-  
+    
           print "Go to menu? (y/n): "
           retry_input = gets.chomp
           if retry_input == "y"
@@ -100,13 +101,15 @@ def caesar
                 puts "Invalid input. Please try again."
             end
         else
+            decrypted_string = ""
             encrypted_string.split("").each do |i|
                 ascii = i.ord
+                ascii -= increment
                 decrypted_string = ascii.chr
                 print decrypted_string
             end
             puts
-
+  
             print "Go to menu? (y/n): "
             retry_input = gets.chomp
             if retry_input == "y"
