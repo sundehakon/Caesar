@@ -2,8 +2,8 @@ def caesar
     encrypted_string = "" # Initialize encrypted_string outside the loop
     loop do
         system("clear") || system("cls")  # Clear the screen
-        puts "\nType 'view' to see encrypted strings"
-        puts "Type 'see' to see decrypted strings"
+        puts "\nType 'view' to see encrypted string"
+        puts "Type 'see' to see decrypted string"
         puts "Type 'add' to add new string"
         puts "Type 'exit' to exit"
         puts 
@@ -87,7 +87,7 @@ def caesar
           end
         end
       elsif menu_input == "see"
-        
+
       elsif menu_input == "exit"
         break
       else
