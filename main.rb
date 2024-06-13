@@ -1,5 +1,13 @@
 def caesar
-input = nil
+
+puts "Type 'view' to see encrypted strings"
+puts "Type 'add' to add new string"
+puts "Type 'exit' to exit"
+
+menu_input = gets.chomp
+
+if menu_input == "add"
+    input = nil
 
     while input.nil? || input.match?(/\d/) # Fetch word/password to encrypt
         print "Enter word (cannot contain integers): "
@@ -31,10 +39,9 @@ input = nil
             ascii += increment
             ascii -= increment + 21 if ascii > 122 
         end
-
-        print ascii.chr
     end
-    puts
+    puts "Your string is encrypted!"
+end
 end
 
 caesar
