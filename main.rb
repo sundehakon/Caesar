@@ -1,15 +1,20 @@
 def caesar
+    encrypted_string = "" # Initialize encrypted_string outside the loop
     loop do
-      puts "Type 'view' to see encrypted strings"
-      puts "Type 'add' to add new string"
-      puts "Type 'exit' to exit"
-  
-      menu_input = gets.chomp
+        system("clear") || system("cls")  # Clear the screen
+        puts "\nType 'view' to see encrypted strings"
+        puts "Type 'see' to see decrypted strings"
+        puts "Type 'add' to add new string"
+        puts "Type 'exit' to exit"
+        puts 
+      
+        menu_input = gets.chomp
   
       if menu_input == "add"
         input = nil
   
         while input.nil? || input.match?(/\d/) # Fetch word/password to encrypt
+          system("clear") || system("cls")  # Clear the screen
           print "Enter word (cannot contain integers): "
           input = gets.chomp
   
@@ -20,7 +25,7 @@ def caesar
   
         increment = nil
   
-        while increment.nil? || increment < -5 || increment > 5 # Fetch prefered increment value
+        while increment.nil? || increment < -5 || increment > 5 # Fetch preferred increment value
           print "Enter shift amount (-5 - 5): "
           increment = gets.chomp.to_i
   
@@ -29,7 +34,7 @@ def caesar
           end
         end
   
-        encrypted_string = ""
+        encrypted_string = "" # Initialize as an empty string
   
         input.split("").each do |i| # Convert string to char and then array for incrementation
           ascii = i.ord
@@ -45,10 +50,44 @@ def caesar
           encrypted_string += ascii.chr
         end
   
-        puts "Your string is encrypted: #{encrypted_string}"
+        puts "Your string is encrypted!"
+
+        print "Go to menu? (y/n): "
+        retry_input = gets.chomp
+        if retry_input == "y"
+            next
+        elsif retry_input == "n"
+            break
+        else
+            puts "Invalid input. Please try again."
+        end
       elsif menu_input == "view"
-        # Code to view decrypted strings
-        puts "View decrypted strings"
+        if encrypted_string.empty?  # Check if encrypted_string is empty
+            puts "No encrypted string available. Please add a string first."
+            print "Go to menu? (y/n): "
+            retry_input = gets.chomp
+            if retry_input == "y"
+                next
+            elsif retry_input == "n"
+                break
+            else
+                puts "Invalid input. Please try again."
+            end
+        else
+          puts encrypted_string
+
+          print "Go to menu? (y/n): "
+          retry_input = gets.chomp
+          if retry_input == "y"
+              next
+          elsif retry_input == "n"
+              break
+          else
+              puts "Invalid input. Please try again."
+          end
+        end
+      elsif menu_input == "see"
+        
       elsif menu_input == "exit"
         break
       else
