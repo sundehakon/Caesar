@@ -102,7 +102,7 @@ def caesar
             end
         else
             decrypted_string = ""
-            encrypted_string.split("").each do |i|
+            encrypted_string.split("").each do |i| # Decrypts the stored encrypted string
                 ascii = i.ord
                 ascii -= increment
                 decrypted_string = ascii.chr
