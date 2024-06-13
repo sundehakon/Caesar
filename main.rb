@@ -37,4 +37,4 @@ input = nil
     puts
 end
 
-caesar()
+caesar
